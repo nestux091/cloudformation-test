@@ -6,22 +6,28 @@ Resources:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: !Ref parameterName1
-      Value: !Ref parameterValue1
+      Name:
+        Ref: parameterName1
+      Value:
+        Ref: parameterValue1
       Tier: Standard
 
   EndpointNameVdcBackReportCorresponsalia:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: !Ref parameterName2
-      Value: !Ref parameterValue2
+      Name:
+        Ref: parameterName2
+      Value:
+        Ref: parameterValue2
       Tier: Standard
 
   ExpirationTimeLimitVdcBackReportCorresponsalia:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: !Ref parameterName3
-      Value: !Ref parameterValue3
+      Name:
+        Ref: parameterName3
+      Value:
+        Ref: parameterValue3
       Tier: Standard
