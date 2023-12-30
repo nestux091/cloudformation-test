@@ -1,4 +1,6 @@
 template-file-path: Parameter_Store_CF.yml
 parameters:
+  customName: /config/aws/rds/name_db
+  customNameValue: backend-database 
 tags:
   owner: Nestor
