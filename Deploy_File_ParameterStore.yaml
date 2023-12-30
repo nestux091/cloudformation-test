@@ -1,0 +1,10 @@
+template-file-path: Parameter_Store_CF.yml
+parameters:
+  parameterName1: /config/vdc-back-dashboard-corresponsalia/aws.topic.arn.report
+  parameterValue1: arn:aws:sns:us-east-1:870388276428:sns_t_reportes_corr_cert
+  parameterName2: /config/vdc-back-report-corresponsalia/cloud.aws.end-point.name
+  parameterValue2: sqs_q_reportes_corr_cert
+  parameterName3: /config/vdc-back-report-corresponsalia/expiration.time.limit
+  parameterValue3: '43200'
+tags:
+  owner: Nestor
