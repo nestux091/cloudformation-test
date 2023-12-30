@@ -6,22 +6,22 @@ Resources:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: "/config/vdc-back-dashboard-corresponsalia/aws.topic.arn.report"
-      Value: "arn:aws:sns:us-east-1:870388276428:sns_t_reportes_corr_cert"
+      Name: !Ref parameterName1
+      Value: !Ref parameterValue1
       Tier: Standard
 
   EndpointNameVdcBackReportCorresponsalia:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: "/config/vdc-back-report-corresponsalia/cloud.aws.end-point.name"
-      Value: "sqs_q_reportes_corr_cert"
+      Name: !Ref parameterName2
+      Value: !Ref parameterValue2
       Tier: Standard
 
   ExpirationTimeLimitVdcBackReportCorresponsalia:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: "/config/vdc-back-report-corresponsalia/expiration.time.limit"
-      Value: "43200"
+      Name: !Ref parameterName3
+      Value: !Ref parameterValue3
       Tier: Standard
