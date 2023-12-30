@@ -17,3 +17,11 @@ Resources:
       Name: "/config/vdc-back-report-corresponsalia/cloud.aws.end-point.name"
       Value: "sqs_q_reportes_corr_cert"
       Tier: Standard
+
+  ExpirationTimeLimitVdcBackReportCorresponsalia:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Name: "/config/vdc-back-report-corresponsalia/expiration.time.limit"
+      Value: "43200"
+      Tier: Standard
