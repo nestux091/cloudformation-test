@@ -17,3 +17,11 @@ Resources:
       Name: "/config/vdc-back-report-corresponsalia/cloud.aws.end-point.name"
       Value: "sqs_q_reportes_corr_cert"
       Tier: Standard
+
+  DevelopmentPasswordDB:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Name: "/config/passwords/database.dev"
+      Value: "R@!7I4pd&0%KS9iw"
+      Tier: Standard
