@@ -1,13 +1,13 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Description: "AWS Parameter store template by Clouxter"
 
-Parameters:
-  DatabaseParameterName:
-    Type: String
-    Default: !Ref customName
-  DatabaseInstanceName:
-    Type: String
-    Default: !Ref customNameValue
+# Parameters:
+#   DatabaseParameterName:
+#     Type: String
+#     Default: !Ref customName
+#   DatabaseInstanceName:
+#     Type: String
+#     Default: !Ref customNameValue
 
 Resources:
   TopicArnReportVdcBackDashboardCorresponsalia:
@@ -38,6 +38,6 @@ Resources:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: !Ref DatabaseInstanceName
-      Value: !Ref DatabaseParameterName
+      Name: !Ref customName
+      Value: !Ref customNameValue
       Tier: Standard
