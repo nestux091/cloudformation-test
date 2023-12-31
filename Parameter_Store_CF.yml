@@ -10,6 +10,11 @@ Parameters:
     Type: String
   EndpointBackReportCorresponsaliaValue:
     Type: String
+  PasswordDatabaseParameterName:
+    Type: String
+  PasswordDatabaseParameterValue:
+    Type: String
+    NoEcho: true
 
 Resources:
   TopicArnReportVdcBackDashboardCorresponsalia:
@@ -26,4 +31,12 @@ Resources:
       Type: String
       Name: !Ref EndpointBackReportCorresponsaliaName
       Value: !Ref EndpointBackReportCorresponsaliaValue
+      Tier: Standard
+
+  PasswordDatabase:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: SecureString
+      Name: !Ref PasswordDatabaseParameterName
+      Value: !Ref PasswordDatabaseParameterValue
       Tier: Standard
