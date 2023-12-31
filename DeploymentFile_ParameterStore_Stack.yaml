@@ -1,6 +1,6 @@
 template-file-path: Parameter_Store_CF.yml
 parameters:
-  ParameterCustomName: /config/passwords/database.dev
-  ParameterCustomValue:  1@o8FUGd7%nKq#v%
+  ParameterCustomName: /config/database/username/
+  ParameterCustomValue:  appuser-dev
 tags:
   owner: Nestor
