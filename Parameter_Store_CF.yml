@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
-Description: "AWS Parameter store template by Clouxter"
+Description: "AWS Parameter store template by Clouxter from Git"
 
 Parameters:
   TopicArnReportBackDasboardName:
