@@ -5,7 +5,7 @@ parameters:
   EndpointBackReportCorresponsaliaName: /config/vdc-back-report-corresponsalia/cloud.aws.end-point.name
   EndpointBackReportCorresponsaliaValue: sqs_q_reportes_corr_test
   PasswordDatabaseParameterName: /config/rds/password_db_test
-  PasswordDatabaseParameterValue: eXufk9C#*V@63%0
+  PasswordDatabaseParameterValue: '@eXufk9C#*V@63%0'
 tags:
   owner: Nestor
   Env: Test
