@@ -8,6 +8,8 @@ parameters:
   PasswordDatabaseParameterValue: 123456789
   UserNameDatabaseParameterName: /config/rds/username_db_test
   UserNameDatabaseParameterValue: nestux091_test
+  BucketConfigName: /config/s3/bucket/logs_db_test
+  BucketConfigValue: database-logs-test
 tags:
   owner: Nestor
   Env: Test
