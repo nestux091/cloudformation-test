@@ -1,0 +1,11 @@
+template-file-path: Parameter_Store_CF.yml
+parameters:
+  TopicArnReportBackDasboardName: /config/vdc-back-dashboard-corresponsalia/aws.topic.arn.report
+  TopicArnReportBackDashboardValue: arn:aws:sns:us-east-1:453291032551:sns_t_reportes_corr_test
+  EndpointBackReportCorresponsaliaName: /config/vdc-back-report-corresponsalia/cloud.aws.end-point.name
+  EndpointBackReportCorresponsaliaValue: sqs_q_reportes_corr_test
+  PasswordDatabaseParameterName: /config/rds/password_db_test
+  PasswordDatabaseParameterValue: @eXufk9C#*V@63%0
+tags:
+  owner: Nestor
+  Env: Test
