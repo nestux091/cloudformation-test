@@ -36,7 +36,7 @@ Resources:
   PasswordDatabase:
     Type: AWS::SSM::Parameter
     Properties:
-      Type: SecureString
+      Type: String
       Name: !Ref PasswordDatabaseParameterName
       Value: !Ref PasswordDatabaseParameterValue
       Tier: Standard
