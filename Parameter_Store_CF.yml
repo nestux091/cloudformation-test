@@ -2,9 +2,13 @@ AWSTemplateFormatVersion: '2010-09-09'
 Description: "AWS Parameter store template by Clouxter"
 
 Parameters:
-  ParameterCustomName:
+  TopicArnReportBackDasboardName:
     Type: String
-  ParameterCustomValue:
+  TopicArnReportBackDashboardValue:
+    Type: String
+  EndpointBackReportCorresponsaliaName:
+    Type: String
+  EndpointBackReportCorresponsaliaValue:
     Type: String
 
 Resources:
@@ -12,30 +16,14 @@ Resources:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: "/config/vdc-back-dashboard-corresponsalia/aws.topic.arn.report"
-      Value: "arn:aws:sns:us-east-1:870388276428:sns_t_reportes_corr_cert"
+      Name: !Ref TopicArnReportBackDasboardName
+      Value: !Ref TopicArnReportBackDashboardValue
       Tier: Standard
 
   EndpointNameVdcBackReportCorresponsalia:
     Type: AWS::SSM::Parameter
     Properties:
       Type: String
-      Name: "/config/vdc-back-report-corresponsalia/cloud.aws.end-point.name"
-      Value: "sqs_q_reportes_corr_cert"
-      Tier: Standard
-
-  DevelopmentPasswordDB:
-    Type: AWS::SSM::Parameter
-    Properties:
-      Type: String
-      Name: "/config/passwords/database.dev"
-      Value: "gVv*G5Lk@0U9&B40"
-      Tier: Standard
-
-  DevelopmenRDSInstance:
-    Type: AWS::SSM::Parameter
-    Properties:
-      Type: String
-      Name: !Ref ParameterCustomName
-      Value: !Ref ParameterCustomValue
+      Name: !Ref EndpointBackReportCorresponsaliaName
+      Value: !Ref EndpointBackReportCorresponsaliaValue
       Tier: Standard
