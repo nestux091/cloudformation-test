@@ -6,6 +6,8 @@ parameters:
   EndpointBackReportCorresponsaliaValue: sqs_q_reportes_corr_test
   PasswordDatabaseParameterName: /config/rds/password_db_test
   PasswordDatabaseParameterValue: 123456789
+  UserNameDatabaseParameterName: /config/rds/username_db_test
+  UserNameDatabaseParameterValue: nestux091_test
 tags:
   owner: Nestor
   Env: Test
