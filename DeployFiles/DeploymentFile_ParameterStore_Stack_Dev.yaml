@@ -1,4 +1,4 @@
-template-file-path: ../Parameter_Store_CF.yml
+template-file-path: Parameter_Store_CF.yml
 parameters:
   TopicArnReportBackDasboardName: /config/vdc-back-dashboard-corresponsalia/aws.topic.arn.report
   TopicArnReportBackDashboardValue: arn:aws:sns:us-east-1:817696542710:sns_t_reportes_corr_dev
