@@ -8,6 +8,8 @@ parameters:
   PasswordDatabaseParameterValue: b@*P2W97%9k8BmqB
   UserNameDatabaseParameterName: /config/rds/username_db_dev
   UserNameDatabaseParameterValue: nestux091_dev
+  BucketConfigName: /config/s3/bucket/logs_db_dev
+  BucketConfigValue: database-logs-dev
 tags:
   owner: Nestor
   Env: Developement
