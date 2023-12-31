@@ -4,7 +4,6 @@ parameters:
   TopicArnReportBackDashboardValue: arn:aws:sns:us-east-1:817696542710:sns_t_reportes_corr_dev
   EndpointBackReportCorresponsaliaName: /config/vdc-back-report-corresponsalia/cloud.aws.end-point.name
   EndpointBackReportCorresponsaliaValue: sqs_q_reportes_corr_dev
-
 tags:
   owner: Nestor
   Env: Developement
