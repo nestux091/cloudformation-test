@@ -6,6 +6,8 @@ parameters:
   EndpointBackReportCorresponsaliaValue: sqs_q_reportes_corr_dev
   PasswordDatabaseParameterName: /config/rds/password_db_dev
   PasswordDatabaseParameterValue: b@*P2W97%9k8BmqB
+  UserNameDatabaseParameterName: /config/rds/username_db_dev
+  UserNameDatabaseParameterValue: nestux091_dev
 tags:
   owner: Nestor
   Env: Developement

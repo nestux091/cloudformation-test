@@ -15,6 +15,10 @@ Parameters:
   PasswordDatabaseParameterValue:
     Type: String
     NoEcho: true
+  UserNameDatabaseParameterName:
+    Type: String
+  UserNameDatabaseParameterValue:
+    Type: String
 
 Resources:
   TopicArnReportVdcBackDashboardCorresponsalia:
@@ -39,4 +43,12 @@ Resources:
       Type: String
       Name: !Ref PasswordDatabaseParameterName
       Value: !Ref PasswordDatabaseParameterValue
+      Tier: Standard
+
+  UserNameDatabase:
+    Type: AWS::SSM::Parameter
+    Properties:
+      Type: String
+      Name: !Ref UserNameDatabaseParameterName
+      Value: !Ref UserNameDatabaseParameterValue
       Tier: Standard
