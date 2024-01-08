@@ -1,0 +1,147 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "Template para crear una alerta de Budget by Clouxter"
+
+Metadata: 
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      -
+        Label:
+          default: "Correos electronicos para notificacion"
+        Parameters:
+          - Email1
+          - Email2
+      -
+        Label:
+          default: "Detalles del budget"
+        Parameters:
+          - BudgetName
+          - BudgetType
+          - Period
+          - LimitUSD
+      -
+        Label:
+          default: "Detalles de la alerta"
+        Parameters:
+          - NotificationType1
+          - ComparisonOperator1
+          - Threshold1
+          - ThresholdType1
+
+    ParameterLabels: 
+      BudgetName: 
+        default: "Nombre del Budget"
+      BudgetType:
+        default: "Tipo de Bugdet"
+      Period:
+        default: "Periodo"
+      LimitUSD:
+        default: "Cantidad del presupuesto"
+      NotificationType1:
+        default: "Tipo de notificacion"
+      ComparisonOperator1:
+        default: "Operador de comparacion"
+      Threshold1:
+        default: "Umbral del budget"
+      ThresholdType1:
+        default: "Tipo de umbral"
+      Email1:
+        default: "Email del cliente"
+      Email2:
+        default: "Email de Clouxter"
+
+Parameters:
+  BudgetName:
+    Type: String
+    Description: "Ingrese el nombre del Budget"
+  BudgetType:
+    Type: String
+    Default: COST
+    Description: "Seleccione el tipo de Budget"
+    AllowedValues: [COST, RI_COVERAGE, RI_UTILIZATION, SAVINGS_PLANS_COVERAGE, SAVINGS_PLANS_UTILIZATION, USAGE]
+  Period:
+    Type: String
+    Default: DAILY
+    Description: "Seleccione el periodo del budget"
+    AllowedValues: [ANNUALLY, DAILY, MONTHLY, QUARTERLY]
+  LimitUSD:
+    Type: Number
+    Description: "Ingrese una cantidad de dinero en USD"
+  NotificationType1:
+    Type: String
+    Default: ACTUAL
+    Description: "Seleccione en que momento se va a enviar la alarma, basado en el consumo ACTUAL o PREVISTO"
+    AllowedValues: [ACTUAL, FORECASTED]
+  ComparisonOperator1: 
+    Type: String
+    Default: GREATER_THAN
+    Description: "Seleccione bajo que condicion se va a enviar la alarma"
+    AllowedValues: [EQUAL_TO, GREATER_THAN, LESS_THAN]
+  Threshold1:
+    Type: Number
+    Description: "Ingrese el umbral del bugdet"
+  ThresholdType1:
+    Type: String
+    Default: PERCENTAGE
+    Description: "Seleccione el tipo de umbral"
+    AllowedValues: [ABSOLUTE_VALUE, PERCENTAGE]
+  Email1:
+    Type: String
+    Description: "Ingrese el email del cliente que se usara para para recibir las notificaciones"
+  Email2:
+    Type: String
+    Default: alarms@clouxter.com
+    Description: "Ingrese el correo de clouxter que se usara para recibir las notificaciones"
+
+Resources:
+  SnsBudgetTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      DisplayName: "clx-budget-notifications"
+      TopicName: "clx-budget-notifications"
+
+  SnsTopicPolicy:
+    Type: AWS::SNS::TopicPolicy
+    Properties: 
+      PolicyDocument:
+        Id: MySnsTopicPolicy
+        Version: '2012-10-17'
+        Statement:
+          - Sid: Stmt1643807474528
+            Effect: Allow
+            Principal:
+              Service: budgets.amazonaws.com
+            Action:
+              - sns:Publish
+            Resource: !Ref SnsBudgetTopic
+      Topics:
+        - !Ref SnsBudgetTopic
+
+  BudgetAlarm:
+    Type: "AWS::Budgets::Budget"
+    Properties:
+      Budget:
+        BudgetName: !Ref BudgetName
+        BudgetLimit:
+          Amount: !Ref LimitUSD
+          Unit: USD
+        TimeUnit: !Ref Period
+        BudgetType: !Ref BudgetType
+      NotificationsWithSubscribers:
+        - Notification:
+            NotificationType: !Ref NotificationType1
+            ComparisonOperator: !Ref ComparisonOperator1
+            Threshold: !Ref Threshold1
+            ThresholdType: !Ref ThresholdType1
+          Subscribers:
+            - SubscriptionType: EMAIL
+              Address: !Ref Email1
+            - SubscriptionType: EMAIL
+              Address: !Ref Email2
+            - SubscriptionType: SNS
+              Address: !Ref SnsBudgetTopic 
+
+Outputs:
+  BudgetId:
+    Value: !Ref BudgetAlarm
+  TopicName:
+    Value: !GetAtt SnsBudgetTopic.TopicName
