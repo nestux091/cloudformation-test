@@ -19,10 +19,6 @@ Parameters:
     Type: String
   UserNameDatabaseParameterValue:
     Type: String
-  BucketConfigName:
-    Type: String
-  BucketConfigValue:
-    Type: String
 
 Resources:
   TopicArnReportVdcBackDashboardCorresponsalia:
@@ -55,12 +51,4 @@ Resources:
       Type: String
       Name: !Ref UserNameDatabaseParameterName
       Value: !Ref UserNameDatabaseParameterValue
-      Tier: Standard
-
-  BucketConfig:
-    Type: AWS::SSM::Parameter
-    Properties:
-      Type: String
-      Name: !Ref BucketConfigName
-      Value: !Ref BucketConfigValue
       Tier: Standard
