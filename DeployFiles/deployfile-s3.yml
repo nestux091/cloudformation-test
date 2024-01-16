@@ -1,0 +1,5 @@
+template-file-path: buckets3.yml
+parameters:
+tags:
+  owner: Nestor
+  Env: Developement
