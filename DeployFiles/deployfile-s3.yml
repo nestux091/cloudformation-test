@@ -1,4 +1,4 @@
-template-file-path: buckets3.yml
+template-file-path: DeployFiles/buckets3.yml
 parameters:
 tags:
   owner: Nestor
